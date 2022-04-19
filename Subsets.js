@@ -39,6 +39,7 @@ var subsets = function (nums) {
     return output
 };
 
+// second solution with a for loop
 var subsets = function (nums) {
     let output = []
 
