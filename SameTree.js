@@ -10,14 +10,21 @@
  * @param {TreeNode} p
  * @param {TreeNode} q
  * @return {boolean}
+ 
+            1
+        /       \
+      2           3 p
+      
+            1
+        /       \
+      2           3 q
+       
  */
- var isSameTree = function(p, q) {
-    if(p === null && q === null) return true;
+var isSameTree = function(p, q) {
+    if(!p && !q) return true
+    if(!p || !q) return false
     
-    if(p === null && q !== null) return false;
-    if(p !== null && q === null) return false;
+    if(p.val !== q.val) return false
     
-    if(p.val !== q.val) return false;
-    
-    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
 };
