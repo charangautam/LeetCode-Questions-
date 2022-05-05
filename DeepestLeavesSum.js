@@ -10,22 +10,22 @@
  * @param {TreeNode} root
  * @return {number}
  */
- var deepestLeavesSum = function(root) {
+var deepestLeavesSum = function(root) {
     let output = 0
-    let count = 0
+    let deepestLevel = 0
     
-    const dfs = (node, i) => {
+    const dfs = (node, index) => {
         if(!node) return
         
-        if(count === i) output += node.val
+        if(index === deepestLevel) output += node.val
         
-        if(i > count) {
-            count = i
+        if(index > deepestLevel) {
+            deepestLevel = index
             output = node.val
         }
         
-        dfs(node.left, i+1)
-        dfs(node.right, i+1)
+        dfs(node.left, index + 1)
+        dfs(node.right, index + 1)
     }
     
     dfs(root, 0)
